@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Launch Success Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a nice, readable font */
+            padding: 20px; /* Adds padding around the body content */
+        }
+        form {
+            margin: 20px 0; /* Adds vertical margin for the form */
+            background-color: #f4f4f4; /* Light grey background */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 8px; /* Rounded corners for the form */
+        }
+        label {
+            display: block; /* Makes each label go on a new line */
+            margin: 10px 0 5px; /* Spacing above each label */
+        }
+        input[type="date"] {
+            width: 200px; /* Width of date inputs */
+            padding: 8px; /* Padding inside the inputs */
+            margin-bottom: 10px; /* Spacing below each input */
+            border: 1px solid #ccc; /* Light grey border around inputs */
+            border-radius: 4px; /* Rounded corners for inputs */
+        }
+        button {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Larger text size */
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green background on hover */
+        }
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Collapses borders between cells */
+        }
+        th, td {
+            text-align: left; /* Aligns text to the left */
+            padding: 8px; /* Padding inside table cells */
+            border-bottom: 1px solid #ddd; /* Light grey bottom border */
+        }
+        th {
+            background-color: #f2f2f2; /* Light grey background for headers */
+        }
+    </style>
+</head>
+<body>
+<h1>Enter Date Range for Launch Success Details</h1>
+<form th:action="@{/launches/dates/launch-success-details}" method="get">
+    <p>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required />
+    </p>
+    <p>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required />
+    </p>
+    <p>
+        <button type="submit">Get Details</button>
+    </p>
+</form>
+
+<!-- Optionally display the result below -->
+<div th:if="${not #lists.isEmpty(details)}">
+    <h2>Results:</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Vehicle ID</th>
+            <th>Type</th>
+            <th>Manufacturer</th>
+            <th>Total Launches</th>
+            <th>Successful Launches</th>
+            <th>Success Rate</th>
+            <th>Utilization Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="detail : ${details}">
+            <td th:text="${detail[0]}">Vehicle ID</td>
+            <td th:text="${detail[1]}">Type</td>
+            <td th:text="${detail[2]}">Manufacturer</td>
+            <td th:text="${detail[3]}">Total Launches</td>
+            <td th:text="${detail[4]}">Successful Launches</td>
+            <td th:text="${detail[5]}">Success Rate</td>
+            <td th:text="${detail[6]}">Utilization Rate</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${#lists.isEmpty(details)}">
+    <p>No data available for the given dates.</p>
+</div>
+</body>
+</html>

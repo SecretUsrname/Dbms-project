@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Satellite Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: left; /* Align text to the left */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        a {
+            color: #0066cc; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover for better accessibility */
+        }
+        p {
+            line-height: 1.6; /* More readable line spacing */
+        }
+        .details p {
+            margin: 10px 0; /* Spacing around paragraphs */
+        }
+        .details strong {
+            color: #333; /* Dark text for labels */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: center; /* Centers the content */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        .button-link button {
+            margin: 10px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Slightly larger font size */
+            text-align: center;
+        }
+        .button-link button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Satellite Details</h1>
+<div class="details" th:if="${satellite != null}">
+    <p><strong>ID:</strong> <span th:text="${satellite.SatelliteID}"></span></p>
+    <p><strong>Name:</strong> <span th:text="${satellite.name}"></span></p>
+    <p><strong>Manufacturer name:</strong> <span th:text="${satellite.manufacturer}"></span></p>
+    <p><strong>Orbit ID:</strong> <span th:text="${satellite.OrbitID}"></span></p>
+    <p><strong>Vehicle ID:</strong> <span th:text="${satellite.VehicleID}"></span></p>
+</div>
+<div th:if="${satellite == null}">
+    <p>No satellite found with the provided ID.</p>
+</div>
+<a href="/">Return to Home</a>
+</body>
+</html>

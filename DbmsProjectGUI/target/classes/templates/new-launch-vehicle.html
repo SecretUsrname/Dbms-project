@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Launch Vehicle</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: left; /* Align text to the left */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        a {
+            color: #0066cc; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover for better accessibility */
+        }
+        p {
+            line-height: 1.6; /* More readable line spacing */
+        }
+        .details p {
+            margin: 10px 0; /* Spacing around paragraphs */
+        }
+        .details strong {
+            color: #333; /* Dark text for labels */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: center; /* Centers the content */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        .button-link button {
+            margin: 10px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Slightly larger font size */
+            text-align: center;
+        }
+        .button-link button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+        input{
+            width: 200px; /* Width of date inputs */
+            padding: 8px; /* Padding inside the inputs */
+            margin-bottom: 10px; /* Spacing below each input */
+            border: 1px solid #ccc; /* Light grey border around inputs */
+            border-radius: 4px; /* Rounded corners for inputs */
+        }
+        button {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Larger text size */
+        }
+    </style>
+</head>
+<body>
+<h1>Create a New Launch Vehicle</h1>
+<form th:action="@{/launch-vehicles/create}" method="post">
+    <p><input type="text" name="type" placeholder="Type" required></p>
+    <p><input type="text" name="manufacturer" placeholder="Manufacturer" required></p>
+    <p><input type="number" name="Maxpayload" placeholder="Maximum Payload (kg)" required></p>
+    <p><input type="number" name="launchCount" placeholder="Launch Count" required></p>
+    <p><input type="text" name="Operationalstatus" placeholder="Operational Status" required></p>
+    <p><button type="submit">Create Vehicle</button></p>
+</form>
+</body>
+</html>

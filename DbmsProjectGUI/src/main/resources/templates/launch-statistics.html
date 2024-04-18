@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- include required CSS and JS here -->
+    <title>Launch Statistics</title>
+</head>
+<body>
+<h1>Launch Vehicle Statistics</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Vehicle ID</th>
+        <th>Type</th>
+        <th>Manufacturer</th>
+        <th>Total Launches</th>
+        <th>Successful Launches</th>
+        <th>Success Rate</th>
+        <th>Utilization Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stat : ${launchStatistics}">
+        <td th:text="${stat.vehicleId}">Vehicle ID</td>
+        <td th:text="${stat.type}">Type</td>
+        <td th:text="${stat.manufacturer}">Manufacturer</td>
+        <td th:text="${stat.totalLaunches}">Total Launches</td>
+        <td th:text="${stat.successfulLaunches}">Successful Launches</td>
+        <td th:text="${stat.successRate}">Success Rate</td>
+        <td th:text="${stat.utilizationRate}">Utilization Rate</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

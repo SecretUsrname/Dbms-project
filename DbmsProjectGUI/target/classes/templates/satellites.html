@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Satellite Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: left; /* Align text to the left */
+        }
+        button {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Larger text size */
+        }
+        form {
+            margin: 20px 0; /* Adds vertical margin for the form */
+            background-color: #f4f4f4; /* Light grey background */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 8px; /* Rounded corners for the form */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        a {
+            color: #0066cc; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover for better accessibility */
+        }
+        p {
+            line-height: 1.6; /* More readable line spacing */
+        }
+        .details p {
+            margin: 10px 0; /* Spacing around paragraphs */
+        }
+        .details strong {
+            color: #333; /* Dark text for labels */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: center; /* Centers the content */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        input{
+            width: 200px; /* Width of date inputs */
+            padding: 8px; /* Padding inside the inputs */
+            margin-bottom: 10px; /* Spacing below each input */
+            border: 1px solid #ccc; /* Light grey border around inputs */
+            border-radius: 4px; /* Rounded corners for inputs */
+        }
+        .button-link button {
+            margin: 10px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Slightly larger font size */
+            text-align: center;
+        }
+        .button-link button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Enter Satellite ID to Get Details</h1>
+<form th:action="@{/satellites/details}" method="get">
+    <input type="number" name="id" placeholder="Enter Satellite ID" required>
+    <button type="submit">Get Details</button>
+</form>
+<h2>Enter Satellite ID to delete it</h2>
+<form th:action="@{/satellites/deletedetails}" method="get">
+    <input type="number" name="id" placeholder="Enter Satellite ID" required>
+    <button type="submit">Delete</button>
+</form>
+</body>
+</html>

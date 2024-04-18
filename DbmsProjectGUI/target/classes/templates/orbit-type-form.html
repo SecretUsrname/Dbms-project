@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Retrieve Satellite by Orbit Type</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* Sets a nice, readable font */
+      padding: 20px; /* Adds padding around the body content */
+    }
+    form {
+      margin: 20px 0; /* Adds vertical margin for the form */
+      background-color: #f4f4f4; /* Light grey background */
+      padding: 20px; /* Padding inside the form */
+      border-radius: 8px; /* Rounded corners for the form */
+    }
+    label {
+      display: block; /* Makes each label go on a new line */
+      margin: 10px 0 5px; /* Spacing above each label */
+    }
+    input[type="date"] {
+      width: 200px; /* Width of date inputs */
+      padding: 8px; /* Padding inside the inputs */
+      margin-bottom: 10px; /* Spacing below each input */
+      border: 1px solid #ccc; /* Light grey border around inputs */
+      border-radius: 4px; /* Rounded corners for inputs */
+    }
+    button {
+      background-color: #4CAF50; /* Green background color */
+      color: white; /* White text color */
+      padding: 10px 20px; /* Padding inside the button */
+      border: none; /* No border */
+      border-radius: 4px; /* Rounded corners for the button */
+      cursor: pointer; /* Pointer cursor on hover */
+      font-size: 16px; /* Larger text size */
+    }
+    button:hover {
+      background-color: #45a049; /* Darker green background on hover */
+    }
+    table {
+      width: 100%; /* Full width */
+      border-collapse: collapse; /* Collapses borders between cells */
+    }
+    th, td {
+      text-align: left; /* Aligns text to the left */
+      padding: 8px; /* Padding inside table cells */
+      border-bottom: 1px solid #ddd; /* Light grey bottom border */
+    }
+    th {
+      background-color: #f2f2f2; /* Light grey background for headers */
+    }
+  </style>
+</head>
+<body>
+<h1>Enter Orbit Type to Get Satellite Details</h1>
+<form th:action="@{/satellites/orbit-type-results}" method="get">
+  <input type="text" name="OType" placeholder="Enter Orbit Type" required>
+  <button type="submit">Get Details</button>
+</form>
+</body>
+</html>

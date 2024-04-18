@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Launch Vehicle</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f8ff; /* Very light blue background */
+    text-align: center; /* Centers the content */
+    }
+    h1 {
+    color: #333366; /* Dark blue color */
+    }
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .button-link button {
+    margin: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Slightly larger font size */
+    text-align: center;
+    }
+    .button-link button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    }
+    .button-link {
+    display: inline-block;
+    text-decoration: none; /* Removes underline from links */
+    }
+    input{
+        width: 200px; /* Width of date inputs */
+        padding: 8px; /* Padding inside the inputs */
+        margin-bottom: 10px; /* Spacing below each input */
+        border: 1px solid #ccc; /* Light grey border around inputs */
+        border-radius: 4px; /* Rounded corners for inputs */
+    }
+    button {
+        background-color: #4CAF50; /* Green background color */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Padding inside the button */
+        border: none; /* No border */
+        border-radius: 4px; /* Rounded corners for the button */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Larger text size */
+    }
+    </style>
+</head>
+<body>
+<h1>Create a New Launch Vehicle</h1>
+<form th:action="@{/launches/scheduleCreate}" method="post">
+    <p>
+    <input type="number" name="SatelliteID" placeholder="Satellite Id" required>
+    </p>
+    <p>
+        <input type="number" name="SiteID" placeholder="Site Id" required>
+    </p>
+    <p>
+        <input type="number" name="VehicleID" placeholder="Vehicle Id" required>
+    </p>
+    <p>
+        <input type="number" name="payload" placeholder="payload (in kg)" required>
+    </p>
+    <p>
+        <input type="date" name="date" placeholder="Launch Date" required>
+    </p>
+    <p>
+        <button type="submit">Schedule Launch</button>
+    </p>
+</form>
+</body>
+</html>

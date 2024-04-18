@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Satellite Details By Orbit Type</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Enter Orbit Type to Get Satellite Details</h1>
+<form th:action="@{/satellites/orbit-type}" method="post">
+    <input type="text" name="orbitType" placeholder="Enter Orbit Type" required>
+    <button type="submit">Get Details</button>
+</form>
+
+<h2>Satellite Details</h2>
+<div th:if="${!satellites.isEmpty()}">
+    <table>
+        <tr>
+            <th>Satellite ID</th>
+            <th>Name</th>
+            <th>Operational Life</th>
+            <th>Launch Date</th>
+            <th>Manufacturer</th>
+            <th>Remaining Operational Life</th>
+            <th>Orbit ID</th>
+            <th>Orbit Type</th>
+            <th>Altitude</th>
+            <th>Inclination</th>
+            <th>Period</th>
+        </tr>
+        <tr th:each="satellite : ${satellites}">
+            <td th:text="${satellite.satelliteid}"></td>
+            <td th:text="${satellite.name}"></td>
+            <td th:text="${satellite.operationallife}"></td>
+            <td th:text="${satellite.launchdate}"></td>
+            <td th:text="${satellite.manufacturer}"></td>
+            <td th:text="${satellite.remainingoplife}"></td>
+            <td th:text="${satellite.orbitid}"></td>
+            <td th:text="${satellite.orbit_type}"></td>
+            <td th:text="${satellite.altitude}"></td>
+            <td th:text="${satellite.inclination}"></td>
+            <td th:text="${satellite.period}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${satellites.isEmpty()}">
+    <p>No satellites found for this orbit type.</p>
+</div>
+</body>
+</html>

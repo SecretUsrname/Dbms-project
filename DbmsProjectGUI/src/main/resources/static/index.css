@@ -1,0 +1,12 @@
+ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;          /* Ensures the UL takes full width */
+}
+li:first-child {
+    margin-right: auto;   /* Pushes all other elements to the right */
+    margin-left: auto;    /* Pushes all other elements to the left */
+}

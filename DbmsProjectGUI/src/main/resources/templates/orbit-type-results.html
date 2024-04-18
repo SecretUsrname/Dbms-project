@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Satellite Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Sets a nice, readable font */
+            padding: 20px; /* Adds padding around the body content */
+        }
+        form {
+            margin: 20px 0; /* Adds vertical margin for the form */
+            background-color: #f4f4f4; /* Light grey background */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 8px; /* Rounded corners for the form */
+        }
+        label {
+            display: block; /* Makes each label go on a new line */
+            margin: 10px 0 5px; /* Spacing above each label */
+        }
+        input[type="date"] {
+            width: 200px; /* Width of date inputs */
+            padding: 8px; /* Padding inside the inputs */
+            margin-bottom: 10px; /* Spacing below each input */
+            border: 1px solid #ccc; /* Light grey border around inputs */
+            border-radius: 4px; /* Rounded corners for inputs */
+        }
+        button {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding inside the button */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Larger text size */
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green background on hover */
+        }
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Collapses borders between cells */
+        }
+        th, td {
+            text-align: left; /* Aligns text to the left */
+            padding: 8px; /* Padding inside table cells */
+            border-bottom: 1px solid #ddd; /* Light grey bottom border */
+        }
+        th {
+            background-color: #f2f2f2; /* Light grey background for headers */
+        }
+    </style>
+</head>
+<body>
+<h1>Satellite Details by Orbit Type</h1>
+<div th:if="${!satellites.isEmpty()}">
+    <table>
+        <tr>
+            <th>Satellite ID</th>
+            <th>Name</th>
+            <th>Operational Life</th>
+            <th>Launch Date</th>
+            <th>Manufacturer</th>
+            <th>Remaining Operational Life</th>
+            <th>Orbit ID</th>
+            <th>Orbit Type</th>
+            <th>Altitude</th>
+            <th>Inclination</th>
+            <th>Period</th>
+        </tr>
+        <tr th:each="satellite : ${satellites}">
+            <td th:text="${satellite.satelliteId}"></td>
+            <td th:text="${satellite.name}"></td>
+            <td th:text="${satellite.operationallife}"></td>
+            <td th:text="${satellite.launchDate}"></td>
+            <td th:text="${satellite.manufacturer}"></td>
+            <td th:text="${satellite.remainingOpLife}"></td>
+            <td th:text="${satellite.orbitId}"></td>
+            <td th:text="${satellite.orbitType}"></td>
+            <td th:text="${satellite.altitude}"></td>
+            <td th:text="${satellite.inclination}"></td>
+            <td th:text="${satellite.period}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${satellites.isEmpty()}">
+    <p>No satellites found for the specified orbit type.</p>
+</div>
+<a href="/satellites/orbit-type">Search Again</a>
+</body>
+</html>

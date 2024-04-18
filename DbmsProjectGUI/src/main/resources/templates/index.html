@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Space Traffic Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff; /* Very light blue background */
+            text-align: center; /* Centers the content */
+        }
+        h1 {
+            color: #333366; /* Dark blue color */
+        }
+        .button-link button {
+            margin: 10px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Slightly larger font size */
+            text-align: center;
+        }
+        .button-link button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+        .button-link {
+            display: inline-block;
+            text-decoration: none; /* Removes underline from links */
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Space Traffic Management System</h1>
+<div class="button-link">
+    <a href="/satellites">
+        <button>View Satellite Details</button>
+    </a>
+</div>
+<div class="button-link">
+    <a href="/launch-vehicles/new">
+        <button>Create New Launch Vehicle</button>
+    </a>
+</div>
+<div class="button-link">
+    <a href="/launches/schedule">
+        <button>Schedule a Launch</button>
+    </a>
+</div>
+<div class="button-link">
+    <a href="/launches/dates">
+        <button>View Launch Success Details</button>
+    </a>
+</div>
+<div class="button-link">
+    <a href="/satellites/orbit-type">
+        <button>View Satllite by orbit type</button>
+    </a>
+</div>
+</body>
+</html>
